@@ -1,4 +1,5 @@
 import * as espnApi from './espnApi';
+import * as sportsDbApi from './sportsDbApi';
 import { getTradeStatus } from './tradeService';
 
 /**
@@ -53,6 +54,27 @@ function normalizeSearchResult(athlete) {
   };
 }
 
+/**
+ * Normalize a TheSportsDB player object into the same slim player summary
+ * format used by the rest of the app.
+ */
+function normalizeSportsDbResult(player) {
+  if (!player) return null;
+
+  return {
+    id: player.idPlayer || '',
+    fullName: player.strPlayer || '',
+    firstName: (player.strPlayer || '').split(' ')[0] || '',
+    lastName: (player.strPlayer || '').split(' ').slice(1).join(' ') || '',
+    position: player.strPosition || '',
+    jersey: player.strNumber || '',
+    teamId: player.idTeam || '',
+    teamName: player.strTeam || '',
+    teamAbbrev: '',
+    headshot: player.strThumb || player.strCutout || '',
+  };
+}
+
 // ---------------------------------------------------------------------------
 // Public API
 // ---------------------------------------------------------------------------
@@ -68,6 +90,7 @@ function normalizeSearchResult(athlete) {
  * @returns {Promise<Array<object>>} Normalized player summaries
  */
 export async function searchPlayers(query) {
+  // Try ESPN first (works in dev via Vite proxy, may work in prod via Netlify proxy).
   try {
     const data = await espnApi.searchPlayers(query);
 
@@ -85,7 +108,20 @@ export async function searchPlayers(query) {
       ? athletes
       : athletes.items || [];
 
-    return list.map(normalizeSearchResult).filter(Boolean);
+    const results = list.map(normalizeSearchResult).filter(Boolean);
+    if (results.length > 0) return results;
+  } catch {
+    // ESPN failed — fall through to TheSportsDB.
+  }
+
+  // Fallback: use TheSportsDB (publicly accessible, no proxy needed).
+  try {
+    const data = await sportsDbApi.searchPlayers(query);
+    const players = data.player || [];
+    return players
+      .filter((p) => p.strSport === 'American Football')
+      .map(normalizeSportsDbResult)
+      .filter(Boolean);
   } catch {
     return [];
   }

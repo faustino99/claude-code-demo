@@ -81,3 +81,21 @@ export async function fetchSeasonEvents(season) {
     );
   }
 }
+
+/**
+ * Search for players by name.
+ * @param {string} query - Player name to search for
+ * @returns {Promise<object>} TheSportsDB search response data
+ */
+export async function searchPlayers(query) {
+  try {
+    const response = await axios.get(
+      `${SPORTSDB_API}/searchplayers.php?p=${encodeURIComponent(query)}`,
+    );
+    return response.data;
+  } catch (error) {
+    throw new Error(
+      `[SportsDB] Failed to search players for "${query}": ${error.response?.status ?? error.message}`,
+    );
+  }
+}
