@@ -1,0 +1,6 @@
+# Proxy ESPN API requests (replaces Vite dev server proxy in production)
+/espn-api/*  https://site.api.espn.com/:splat  200
+/espn-web-api/*  https://site.web.api.espn.com/:splat  200
+
+# SPA fallback - send all routes to index.html for React Router
+/*  /index.html  200
