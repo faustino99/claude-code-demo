@@ -1,0 +1,23 @@
+.badge {
+  display: inline-block;
+  padding: 2px var(--spacing-xs);
+  border-radius: var(--border-radius-sm);
+  color: white;
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  line-height: 1.4;
+  white-space: nowrap;
+  letter-spacing: 0.3px;
+}
+
+.rumored {
+  background-color: var(--color-trade-rumored);
+}
+
+.likely {
+  background-color: var(--color-trade-likely);
+}
+
+.confirmed {
+  background-color: var(--color-trade-confirmed);
+}

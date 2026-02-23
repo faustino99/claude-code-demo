@@ -1,0 +1,153 @@
+.row {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-bottom: 1px solid var(--color-border);
+  border-left: 4px solid transparent;
+  background-color: var(--color-surface);
+  transition: background-color 0.15s ease;
+}
+
+.row:hover {
+  background-color: var(--color-background);
+}
+
+.row:last-child {
+  border-bottom: none;
+}
+
+.win {
+  border-left-color: var(--color-win);
+}
+
+.loss {
+  border-left-color: var(--color-loss);
+}
+
+.week {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 36px;
+  flex-shrink: 0;
+}
+
+.weekLabel {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.weekNumber {
+  font-size: var(--font-size-md);
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.date {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  min-width: 80px;
+  flex-shrink: 0;
+}
+
+.matchup {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  flex: 1;
+  min-width: 0;
+}
+
+.team {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.teamAbbrev {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.at {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  font-weight: 500;
+}
+
+.score {
+  min-width: 70px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.scoreText {
+  font-size: var(--font-size-md);
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.gameTime {
+  font-size: var(--font-size-sm);
+  color: var(--color-accent);
+  font-weight: 500;
+}
+
+.meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+  min-width: 100px;
+  flex-shrink: 0;
+}
+
+.venue {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  text-align: right;
+}
+
+.broadcast {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .row {
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+  }
+
+  .date {
+    order: 1;
+    min-width: auto;
+  }
+
+  .week {
+    order: 0;
+  }
+
+  .matchup {
+    order: 2;
+    flex-basis: 100%;
+  }
+
+  .score {
+    order: 3;
+    min-width: auto;
+  }
+
+  .meta {
+    order: 4;
+    align-items: flex-start;
+    flex-basis: 100%;
+    flex-direction: row;
+    gap: var(--spacing-sm);
+  }
+}

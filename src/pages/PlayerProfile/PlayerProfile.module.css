@@ -1,0 +1,209 @@
+.profile {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+}
+
+.header {
+  display: flex;
+  gap: var(--spacing-xl);
+  align-items: flex-start;
+  background: var(--color-surface);
+  padding: var(--spacing-xl);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+.headshot {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--color-background);
+}
+
+.headshotPlaceholder {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-2xl);
+  font-weight: 700;
+}
+
+.headerInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.nameRow {
+  display: flex;
+  align-items: baseline;
+  gap: var(--spacing-sm);
+}
+
+.name {
+  font-size: var(--font-size-2xl);
+  color: var(--color-primary);
+}
+
+.jersey {
+  font-size: var(--font-size-xl);
+  color: var(--color-text-muted);
+  font-weight: 600;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  font-size: var(--font-size-lg);
+}
+
+.position {
+  background: var(--color-primary);
+  color: white;
+  padding: 2px 10px;
+  border-radius: var(--border-radius-sm);
+  font-weight: 600;
+  font-size: var(--font-size-sm);
+}
+
+.team {
+  color: var(--color-accent);
+  font-weight: 500;
+}
+
+.sectionTitle {
+  font-size: var(--font-size-xl);
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-sm);
+  padding-bottom: var(--spacing-xs);
+  border-bottom: 2px solid var(--color-primary);
+}
+
+.bio {
+  background: var(--color-surface);
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
+}
+
+.bioGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: var(--spacing-md);
+}
+
+.bioItem {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.bioLabel {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.bioValue {
+  font-size: var(--font-size-base);
+  font-weight: 500;
+}
+
+.statsSection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.noStats {
+  text-align: center;
+  color: var(--color-text-muted);
+  padding: var(--spacing-xl);
+  background: var(--color-surface);
+  border-radius: var(--border-radius);
+}
+
+.tradeSection {
+  background: #fff7ed;
+  border: 1px solid var(--color-trade-rumored);
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius);
+}
+
+.tradeCard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.tradeHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.tradeDate {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+.tradeHeadline {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+}
+
+.tradeTeams {
+  font-size: var(--font-size-base);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.arrow {
+  color: var(--color-text-muted);
+}
+
+.tradeDetails {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+.tradeSource {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .nameRow {
+    justify-content: center;
+  }
+
+  .meta {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .headshot,
+  .headshotPlaceholder {
+    width: 120px;
+    height: 120px;
+  }
+}

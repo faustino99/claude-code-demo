@@ -1,0 +1,35 @@
+.logo {
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.sm {
+  width: 32px;
+  height: 32px;
+}
+
+.md {
+  width: 48px;
+  height: 48px;
+}
+
+.lg {
+  width: 72px;
+  height: 72px;
+}
+
+.placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-border);
+  color: var(--color-text-secondary);
+  border-radius: var(--border-radius-sm);
+  font-weight: 700;
+  font-size: var(--font-size-sm);
+  flex-shrink: 0;
+}
+
+.placeholder.lg {
+  font-size: var(--font-size-xl);
+}

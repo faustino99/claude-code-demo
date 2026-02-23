@@ -1,0 +1,93 @@
+.card {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
+  text-decoration: none;
+  color: inherit;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.imageContainer {
+  flex-shrink: 0;
+  width: 64px;
+  height: 64px;
+}
+
+.headshot {
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+  border-radius: var(--border-radius);
+}
+
+.headshotPlaceholder {
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-primary);
+  color: white;
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  border-radius: var(--border-radius);
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.name {
+  margin: 0;
+  font-size: var(--font-size-md);
+  font-weight: 600;
+  color: var(--color-text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.details {
+  margin: 0;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.position {
+  font-weight: 600;
+  color: var(--color-accent);
+}
+
+.jersey {
+  color: var(--color-text-muted);
+}
+
+.team {
+  margin: 0;
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}
+
+.abbrev {
+  color: var(--color-text-muted);
+}
+
+.tradeStatus {
+  margin-top: 2px;
+}
